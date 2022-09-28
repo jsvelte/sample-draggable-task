@@ -1,19 +1,12 @@
-import Head from "next/head"
-import type { NextPage } from "next"
+import Head from 'next/head'
+import type { NextPage } from 'next'
+import Layout from '~/components/templates/Layout'
 
 const Index: NextPage = () => {
   return (
-    <>
-      <Head>
-        <title>Draggable Task</title>
-      </Head>
-      <div className="flex h-screen min-h-screen items-center justify-center bg-indigo-100">
-        <h1 className="text-2xl font-bold text-indigo-500 text-center">
-          {" "}
-          Sample Draggable Task
-        </h1>
-      </div>
-    </>
+    <Layout metaTitle="Draggable Task">
+      <h1>This is the task</h1>
+    </Layout>
   )
 }
 
