@@ -1,11 +1,10 @@
-import Head from 'next/head'
 import type { NextPage } from 'next'
 import Layout from '~/components/templates/Layout'
 
-const Index: NextPage = () => {
+const Index: NextPage = (): JSX.Element => {
   return (
     <Layout metaTitle="Draggable Task">
-      <h1>This is the task</h1>
+      <div className="flex h-screen flex-col p-10"></div>
     </Layout>
   )
 }

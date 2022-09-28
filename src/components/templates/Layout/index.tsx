@@ -9,11 +9,11 @@ type Props = {
   metaTitle: string
 }
 
-const Layout: FC<Props> = ({ children }) => {
+const Layout: FC<Props> = ({ children, metaTitle }) => {
   return (
     <>
       <Head>
-        <title>React Draggable Task</title>
+        <title>{metaTitle}</title>
       </Head>
       <div className="h-screen min-h-screen  min-w-full overflow-hidden bg-blue-100">
         <TopBar />

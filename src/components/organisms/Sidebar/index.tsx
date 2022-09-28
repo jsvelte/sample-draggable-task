@@ -1,11 +1,7 @@
 import React, { FC } from 'react'
-import {
-  UserGroupIcon,
-  ServerIcon,
-  CalendarIcon,
-  ChartSquareBarIcon,
-  CogIcon
-} from '@heroicons/react/outline'
+import { clxs } from '~/helpers/classNames'
+
+import { links } from '~/shared/jsons/SidebarLinks'
 
 type Props = {}
 
@@ -20,43 +16,19 @@ const SideBar: FC<Props> = (props): JSX.Element => {
       </h1>
 
       <ul className="flex h-full flex-col text-lg">
-        <li
-          className="flex flex-col items-center justify-center
-                py-7 text-gray-500"
-        >
-          <UserGroupIcon className="h-7 w-7" />
-          Manage
-        </li>
-        <li
-          className="flex flex-col items-center justify-center
-                border-l-4 border-purple-500 py-7 font-bold
-                text-purple-500"
-        >
-          <ServerIcon className="h-7 w-7 text-purple-500" />
-          Boards
-        </li>
-        <li
-          className="flex flex-col items-center justify-center
-                py-7 text-gray-500"
-        >
-          <CalendarIcon className="h-7 w-7" />
-          Schedule
-        </li>
-        <li
-          className="flex flex-col items-center justify-center
-                py-7 text-gray-500"
-        >
-          <ChartSquareBarIcon className="h-7 w-7" />
-          Report
-        </li>
-
-        <li
-          className="mt-auto mb-16 flex flex-col
-                items-center justify-center py-7 text-gray-500"
-        >
-          <CogIcon className="h-7 w-7" />
-          Settings
-        </li>
+        {links.map(({ name, Icon }, i) => (
+          <li
+            key={i}
+            className={clxs(
+              'flex flex-col items-center justify-center py-7 text-gray-500',
+              name === 'Boards' ? 'border-l-4 border-purple-500 text-purple-500' : '',
+              name === 'Settings' ? 'mt-auto mb-16' : ''
+            )}
+          >
+            <Icon className="h-7 w-7" />
+            {name}
+          </li>
+        ))}
       </ul>
     </div>
   )
